@@ -1,0 +1,106 @@
+﻿@model prjFinal.Models.Table流浪狗s1091722
+
+@{
+    ViewBag.Title = "新增領養紀錄";
+}
+
+<h2><strong>新增領養紀錄</strong></h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.編號, htmlAttributes: new { @class = "control-label col-md-5" })
+            <div class="col-md-5">
+                @Html.EditorFor(model => model.編號, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.編號, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.動物別, htmlAttributes: new { @class = "control-label col-md-5" })
+            <div class="col-md-5">
+                @Html.EditorFor(model => model.動物別, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.動物別, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.性別, htmlAttributes: new { @class = "control-label col-md-5" })
+            <div class="col-md-5">
+                <span style="font-size:14pt">公</span>
+                @Html.RadioButtonFor(model => model.性別, "公", new { @checked = "check" })
+                <span style="font-size:14pt">母</span>
+                @Html.RadioButtonFor(model => model.性別, "母")
+                @Html.ValidationMessageFor(model => model.性別, "", new {@class="text-danger"})
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.領養日期, htmlAttributes: new { @class = "control-label col-md-5" })
+            <div class="col-md-5">
+                @Html.EditorFor(model => model.領養日期, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.領養日期, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.是否打過疫苗, htmlAttributes: new { @class = "control-label col-md-5" })
+            <div class="col-md-5">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.是否打過疫苗)
+                    @Html.ValidationMessageFor(model => model.是否打過疫苗, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.領養人, htmlAttributes: new { @class = "control-label col-md-5" })
+            <div class="col-md-5">
+                @Html.EditorFor(model => model.領養人, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.領養人, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.電話, htmlAttributes: new { @class = "control-label col-md-5" })
+            <div class="col-md-5">
+                @Html.EditorFor(model => model.電話, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.電話, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.電子郵件, htmlAttributes: new { @class = "control-label col-md-5" })
+            <div class="col-md-5">
+                @Html.EditorFor(model => model.電子郵件, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.電子郵件, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-6 col-md-10">
+                <input type="submit" value="新增" class="btn btn-default btn-primary"  />
+            </div>
+        </div>
+    </div>
+}
+@if(ViewBag.Error == true) 
+{
+    <div class="alert alert-danger" style="text-align:center" >
+        <strong>編號重複!!!</strong>
+    </div>
+}
+
+
+<div >
+    <h4><strong>@Html.ActionLink("返回", "Index")</strong></h4>
+</div>
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

@@ -1,0 +1,84 @@
+﻿@using PagedList
+@using PagedList.Mvc
+
+@model IPagedList<prjFinal.Models.Table流浪狗s1091722>
+
+@{
+    ViewBag.Title = "領養紀錄";
+}
+<link href="~/Content/PagedList.css" rel="stylesheet" />
+<h2 ><strong><i>流浪狗領養紀錄</i></strong></h2><br /> <p>1091722賴冠綸</p>
+<style>
+    table th {
+        color: lightblue;
+        text-align: center;
+    }
+</style>
+<table class="table">
+    <tr >
+        <th style="text-align:left">
+            <h4><strong>@Html.DisplayNameFor(model => model.FirstOrDefault().編號)</strong></h4>
+        </th>
+        <th>
+            <h4><strong>@Html.DisplayNameFor(model => model.FirstOrDefault().動物別)</strong></h4>
+        </th>
+        <th>
+            <h4><strong>@Html.DisplayNameFor(model => model.FirstOrDefault().性別)</strong></h4>
+        </th>
+        <th>
+            <h4><strong>@Html.DisplayNameFor(model => model.FirstOrDefault().是否打過疫苗)</strong></h4>
+        </th>
+        <th>
+            <h4><strong>@Html.DisplayNameFor(model => model.FirstOrDefault().領養人)</strong></h4>
+        </th>
+        <th>
+            <h4><strong>@Html.DisplayNameFor(model => model.FirstOrDefault().電話)</strong></h4>
+        </th>
+        <th>
+            <h4><strong>@Html.DisplayNameFor(model => model.FirstOrDefault().電子郵件)</strong></h4>
+        </th>
+        <th>
+            <h4><strong>@Html.DisplayNameFor(model => model.FirstOrDefault().領養日期)</strong></h4>
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr >
+            <td >
+                @Html.DisplayFor(modelItem => item.編號)
+            </td>
+            <td style="text-align:center">
+                @Html.DisplayFor(modelItem => item.動物別)
+            </td>
+            <td style="text-align:center">
+                @Html.DisplayFor(modelItem => item.性別)
+            </td>
+            <td style="text-align:center">
+                @Html.DisplayFor(modelItem => item.是否打過疫苗)
+            </td>
+            <td style="text-align:center">
+                @Html.DisplayFor(modelItem => item.領養人)
+            </td>
+            <td style="text-align:center">
+                @Html.DisplayFor(modelItem => item.電話)
+            </td>
+            <td style="text-align:center">
+                @Html.DisplayFor(modelItem => item.電子郵件)
+            </td>
+            <td style="text-align:center">
+                @Html.DisplayFor(modelItem => item.領養日期)
+            </td>
+            <td >
+                <a href="@Url.Action("Edit")?Id=@item.編號" class="btn btn-warning">編輯</a>
+            </td>
+            <td>
+                <a href="@Url.Action("Delete")?Id=@item.編號" class="btn btn-danger" onclick="return confirm('確定要刪除編號 @item.編號 的紀錄?');">刪除</a>
+            </td>
+        </tr>
+    }
+
+</table>
+@Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+<img src="~/images/Dog.jpg" width="110" height="110" style="float:right">

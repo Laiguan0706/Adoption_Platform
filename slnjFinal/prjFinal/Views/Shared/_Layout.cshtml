@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - 流浪狗收容管理系統</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/modernizr-2.8.3.js"></script>
+
+    <style type="text/css">
+        .navbar-center{
+            display:inline-block;
+            float:none;
+            vertical-align:top;
+        }
+        .navbar-collapse-center{
+            text-align:center;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top ">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        <strong> @Html.ActionLink("流浪狗收容管理系統", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })</strong>
+        </div>
+        <div class="container">
+            <div class="navbar-collapse collapse navbar-collapse-center">
+                <ul class="nav navbar-nav  navbar-center">
+                    <li>@Html.ActionLink("查詢紀錄", "Index", "Home")</li>
+                    <li>@Html.ActionLink("新增紀錄", "Create", "Home")</li>
+                    
+                </ul>
+                <ul class="nav navbar-nav  navbar-right">
+                    <li>@Html.ActionLink("登出", "Logout", "Home")</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer style="text-align:center">
+            <p>&copy; @DateTime.Now.Year -期末專題股份有限公司 </p>
+        </footer>
+       
+    </div>
+
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</body>
+</html>

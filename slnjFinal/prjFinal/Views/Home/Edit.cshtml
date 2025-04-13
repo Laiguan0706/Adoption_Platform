@@ -1,0 +1,91 @@
+﻿@model prjFinal.Models.Table流浪狗s1091722
+
+@{
+    ViewBag.Title = "編輯紀錄";
+}
+
+<h2><strong>編輯紀錄</strong></h2>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.編號)
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.動物別, htmlAttributes: new { @class = "control-label col-md-5" })
+        <div class="col-md-5">
+            @Html.EditorFor(model => model.動物別, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.動物別, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.性別, htmlAttributes: new { @class = "control-label col-md-5" })
+        <div class="col-md-5">
+            <span style="font-size:15pt">公</span>
+            @Html.RadioButtonFor(model => model.性別, "公")
+            <span style="font-size:15pt">母</span>
+            @Html.RadioButtonFor(model => model.性別, "母", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.是否打過疫苗, htmlAttributes: new { @class = "control-label col-md-5" })
+        <div class="col-md-5">
+            <div class="checkbox">
+                @Html.EditorFor(model => model.是否打過疫苗)
+                @Html.ValidationMessageFor(model => model.是否打過疫苗, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.領養人, htmlAttributes: new { @class = "control-label col-md-5" })
+        <div class="col-md-5">
+            @Html.EditorFor(model => model.領養人, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.領養人, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.電話, htmlAttributes: new { @class = "control-label col-md-5" })
+        <div class="col-md-5">
+            @Html.EditorFor(model => model.電話, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.電話, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.電子郵件, htmlAttributes: new { @class = "control-label col-md-5" })
+        <div class="col-md-5">
+            @Html.EditorFor(model => model.電子郵件, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.電子郵件, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.領養日期, htmlAttributes: new { @class = "control-label col-md-5" })
+        <div class="col-md-5">
+            @Html.EditorFor(model => model.領養日期, new { htmlAttributes = new { @class = "form-control" ,Type="Text"} })
+            @Html.ValidationMessageFor(model => model.領養日期, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-6 col-md-10">
+            <input type="submit" value="修改" class="btn btn-default btn-warning" />
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    
+</div>
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

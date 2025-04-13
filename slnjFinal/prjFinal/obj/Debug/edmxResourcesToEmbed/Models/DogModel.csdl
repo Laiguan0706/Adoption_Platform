@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="netdbBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Table流浪狗s1091722">
+    <Key>
+      <PropertyRef Name="編號" />
+    </Key>
+    <Property Name="編號" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="動物別" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="性別" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="領養日期" Type="DateTime" Precision="0" />
+    <Property Name="是否打過疫苗" Type="Boolean" Nullable="false" />
+    <Property Name="領養人" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="電話" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="電子郵件" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityContainer Name="DogsEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Table流浪狗s1091722" EntityType="Self.Table流浪狗s1091722" />
+  </EntityContainer>
+</Schema>
